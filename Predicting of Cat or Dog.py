@@ -20,7 +20,7 @@ def load_model(path):
 def preprocess_image(image_path, size=IMG_SIZE):
     img_gray = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
     if img_gray is None:
-        raise ValueError("❌ Image not found or unsupported format.")
+        raise ValueError("Image not found or unsupported format.")
     
     img_resized = cv2.resize(img_gray, size)
     features = hog(
@@ -50,7 +50,7 @@ def predict_and_show(image_path, model):
         cv2.destroyAllWindows()
 
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
 
 # Main function
 def main():
@@ -60,7 +60,7 @@ def main():
     image_path = r"C:\Users\madha\OneDrive\Desktop\intern\task_3\test_images\download.jpg"
     
     if not os.path.isfile(image_path):
-        print("❌ Invalid image path. Please check the file location.")
+        print(" invalid image path. Please check the file location.")
         return
 
     predict_and_show(image_path, model)
